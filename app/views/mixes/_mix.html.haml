@@ -1,0 +1,12 @@
+%article
+  %section.info
+    .thumb= link_to image_tag(""), mix
+    = link_to mix.downloads.count, download_mix_url(mix), class: "num_downloads", title: "Download #{mix.title}"
+    = link_to "Download", download_mix_url(mix), class: "download", title: "Download #{mix.title}"
+  %h1= mix.title
+  - if mix.vs
+    %h2= "vs. #{mix.vs}"
+  = mix.description
+  %section.tracklist
+    %h1 Tracklist
+    = mix.tracklist

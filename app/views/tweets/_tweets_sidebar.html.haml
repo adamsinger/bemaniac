@@ -1,0 +1,5 @@
+%section
+  %h1 Recent Tweets
+  %ul#tweets
+    - for tweet in tweets
+      = render "tweets/tweet", :tweet => tweet

@@ -1,0 +1,22 @@
+%p
+  %b Title:
+  = @mix.title
+%p
+  %b Description:
+  = @mix.description
+%p
+  %b Tracklist:
+  = @mix.tracklist
+%p
+  %b Art:
+  = @mix.art
+%p
+  %b File:
+  = @mix.file
+%p
+  %b Duration:
+  = @mix.duration
+
+= link_to 'Edit', edit_mix_path(@mix)
+\|
+= link_to 'Back', mixes_path

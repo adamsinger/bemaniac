@@ -1,0 +1,17 @@
+%section
+  %h1 Contact Bemaniac
+  - form_for @contact_request do |f|
+    %ul
+      %li
+        = f.label :name
+        = f.text_field :name
+      %li
+        = f.label :email
+        = f.text_field :email
+      %li
+        = f.label :details
+        = f.text_area :details
+      %li
+        = f.submit "Submit"
+      
+  

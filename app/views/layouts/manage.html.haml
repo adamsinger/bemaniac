@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %meta{charset: "utf-8"}
+    %meta{name: "Viewport", content: "width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"}
+    %meta{name: "keywords", content: "hardcore, gabber, industrial, hard techno, schranz, bemaniac, bay area DJ, bay area EDM, dance music, techno, dj bemaniac"}
+    %meta{name: "description", content: "Bemaniac is a Hardcore and Hard Techno DJ living in San Francisco, CA. Originally from Canada, Bemaniac started listening to Hardcore at an early age. Today, Bemaniac has carved out a unique sound from Hardcore. Riding the line between Hard Techno and Industrial, he is certainly a force to be reckoned with."}
+    %meta{property: "og:site_name", content: "Bemaniac"}
+    = stylesheet_link_tag "application"
+    = stylesheet_link_tag "iphone", media: "all and (max-device-width: 480px)"
+    = yield :header
+  %body
+    #wrapper
+      %header.clearfix
+        %h1= link_to "Bemaniac", root_url, title: "Bemaniac"
+      #main.clearfix
+        %article
+          = yield
+    = javascript_include_tag :defaults

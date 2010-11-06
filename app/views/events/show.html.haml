@@ -1,0 +1,28 @@
+%p
+  %b Title:
+  = @event.title
+%p
+  %b Date:
+  = @event.date
+%p
+  %b Timeslot from:
+  = @event.timeslot_from
+%p
+  %b Timeslot to:
+  = @event.timeslot_to
+%p
+  %b Url:
+  = @event.url
+%p
+  %b City:
+  = @event.city
+%p
+  %b State:
+  = @event.state
+%p
+  %b Location:
+  = @event.location
+
+= link_to 'Edit', edit_event_path(@event)
+\|
+= link_to 'Back', events_path
