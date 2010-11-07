@@ -4,7 +4,7 @@ development:
   adapter: mysql2
   database: bemaniac_2_development
   username: root
-  password: bx6828
+  password: a93kguio
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -13,13 +13,13 @@ test:
   adapter: mysql2
   database: bemaniac_2_test
   username: root
-  password: bx6828
+  password: a93kguio
 
 production:
   adapter: mysql2
   database: bemaniac_2_production
   username: bemaniac
-  password: bx6828
+  password: a93kguio
   host: mysql.bemaniac.com
   pool: 5
   timeout: 5000

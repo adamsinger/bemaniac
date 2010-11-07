@@ -1,5 +1,5 @@
 %li.clearfix
-  = link_to event.title, event.url
-  %time{:datetime event.date.strftime("%Y-%m-%d")}= event.date.strftime("%B %d")
+  = link_to event.name, event.event_url
+  %time{datetime: event.date.strftime("%Y-%m-%d")}= event.date.strftime("%B %d")
   .event_details
     %span.location= event.pretty_location

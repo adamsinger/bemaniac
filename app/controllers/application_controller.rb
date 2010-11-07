@@ -7,6 +7,6 @@ class ApplicationController < ActionController::Base
   
   def find_recent_events
     @events = Event.all
-    @tweets = Twitter::timeline("bemaniac", count: 3)
+    @tweets = Twitter::timeline("bemaniac", count: 3) rescue []
   end
 end

@@ -9,7 +9,7 @@
     = stylesheet_link_tag "application"
     = stylesheet_link_tag "iphone", media: "all and (max-device-width: 480px)"
     = yield :header
-  %body
+  %body.manage
     #wrapper
       %header.clearfix
         %h1= link_to "Bemaniac", root_url, title: "Bemaniac"
