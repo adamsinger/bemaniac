@@ -24,5 +24,7 @@ Bemaniac::Application.configure do
   config.action_dispatch.best_standards_support = :builtin
   
   config.action_controller.perform_caching = true
+  
+  config.cache_store = :dalli_store, {:expires_in => 1.second}
 end
 

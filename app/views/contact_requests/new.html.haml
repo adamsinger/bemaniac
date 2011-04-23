@@ -2,13 +2,13 @@
   %h1 Contact Bemaniac
   - form_for @contact_request do |f|
     %ul
-      %li
+      %li.auto_fade
         = f.label :name
         = f.text_field :name
-      %li
+      %li.auto_fade
         = f.label :email
         = f.text_field :email
-      %li
+      %li.auto_fade
         = f.label :details
         = f.text_area :details
       %li

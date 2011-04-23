@@ -1,2 +1,3 @@
-%li.clearfix
-  = auto_link tweet["text"]
+%article.tweet.clearfix
+  %p= auto_link(tweet.text).html_safe
+  = link_to "Follow Me<span class='icon'></span>".html_safe, "http://twitter.com/bemaniac", :class => "action_button twitter"

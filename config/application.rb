@@ -31,8 +31,8 @@ module Bemaniac
     # config.i18n.default_locale = :de
 
     # JavaScript files you want as :defaults (application.js is always included).
-    # config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
-
+    config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
+    
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
@@ -45,10 +45,11 @@ module Bemaniac
     }
     
     config.generators do |g|
-      g.orm             :active_record
-      g.template_engine :haml
-      g.test_framework :rspec, :fixture => true, :views => false
-      g.fixture_replacement :factory_girl, :dir => "spec/factories"
+      g.orm                   :active_record
+      g.template_engine       :haml
+      g.test_framework        :rspec, :fixture => true, :view_specs => false
+      g.fixture_replacement   :factory_girl
+      g.stylesheets           false
     end
   end
 end

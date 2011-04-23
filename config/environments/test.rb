@@ -32,4 +32,6 @@ Bemaniac::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+  
+  config.cache_store = :dalli_store, {:expires_in => 1.second}
 end

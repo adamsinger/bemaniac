@@ -1,12 +1,25 @@
-%article
-  %section.info
-    .thumb= link_to image_tag(""), mix
-    = link_to mix.downloads.count, download_mix_url(mix), class: "num_downloads", title: "Download #{mix.title}"
-    = link_to "Download", download_mix_url(mix), class: "download", title: "Download #{mix.title}"
-  %h1= mix.title
-  - if mix.vs
-    %h2= "vs. #{mix.vs}"
-  = mix.description
-  %section.tracklist
-    %h1 Tracklist
-    = mix.tracklist
+%article.clearfix[mix]
+  .info  
+    .art_and_tracklist
+      %figure.thumb= link_to image_tag(mix.art_url), "#"
+      / = link_to mix.downloads.count, download_mix_url(mix), class: "num_downloads", title: "Download #{mix.title}"
+      / = link_to "Download", download_mix_url(mix), class: "download", title: "Download #{mix.title}"
+      %section.tracklist
+        .inner
+          %h1 Tracklist
+          %ol
+            - 20.times do
+              %li 
+                %h2 Test track
+                %p Someone
+      .click_for_details= link_to "Tracklist", "#"
+    = link_to "Download<span class='icon'></span>".html_safe, download_mix_url(mix), :class => "action_button download"
+  .details
+    %h1= mix.title
+    - if mix.vs
+      %h2= "vs. #{mix.vs}"
+    %p= mix.description
+    / = mix.description
+    / %section.tracklist
+    /   %h1 Tracklist
+    /   = mix.tracklist

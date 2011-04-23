@@ -3,5 +3,5 @@ class Mix < ActiveRecord::Base
   belongs_to  :user
   
   mount_uploader :art, ArtUploader
-  mount_uploader :mix, MixUploader
+  mount_uploader :file, MixUploader
 end

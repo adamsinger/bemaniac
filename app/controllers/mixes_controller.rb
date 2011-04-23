@@ -1,83 +1,58 @@
 class MixesController < ApplicationController
-  # GET /mixes
-  # GET /mixes.xml
+  before_filter :authenticate_user!, :only => [:new, :create, :update, :edit, :destroy]
+  before_filter :find_mix, :only => [:download, :send_download, :update, :destroy, :show]
+  
+  def download
+    render layout: "manage"
+  end
+  
+  def send_download
+    if @mix and @mix.downloads.create(campaign: params[:c] || "unknown")
+      send_file @mix.file.path, disposition: "attachment"
+    end
+  end
+
   def index
     @mixes = Mix.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @mixes }
-    end
   end
 
-  # GET /mixes/1
-  # GET /mixes/1.xml
   def show
-    @mix = Mix.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @mix }
-    end
   end
 
-  # GET /mixes/new
-  # GET /mixes/new.xml
   def new
     @mix = Mix.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @mix }
-    end
+    render layout: "manage"
   end
 
-  # GET /mixes/1/edit
   def edit
-    @mix = Mix.find(params[:id])
+    render layout: "manage"
   end
 
-  # POST /mixes
-  # POST /mixes.xml
   def create
-    @mix = Mix.new(params[:mix])
-
-    respond_to do |format|
-      if @mix.save
-        format.html { redirect_to(@mix, :notice => 'Mix was successfully created.') }
-        format.xml  { render :xml => @mix, :status => :created, :location => @mix }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @mix.errors, :status => :unprocessable_entity }
-      end
+    if @mix = current_user.mixes.create(params[:mix])
+      flash[:notice] = "Mix was successfully created."
+      redirect_to @mix
+    else
+      render action: "new" 
     end
   end
 
-  # PUT /mixes/1
-  # PUT /mixes/1.xml
   def update
-    @mix = Mix.find(params[:id])
-
-    respond_to do |format|
-      if @mix.update_attributes(params[:mix])
-        format.html { redirect_to(@mix, :notice => 'Mix was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @mix.errors, :status => :unprocessable_entity }
-      end
+    if @mix.update_attributes(params[:mix])
+      redirect_to mixes_url, notice: "Mix was successfully updated!"
+    else
+      render action: "edit"
     end
   end
 
-  # DELETE /mixes/1
-  # DELETE /mixes/1.xml
   def destroy
-    @mix = Mix.find(params[:id])
     @mix.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(mixes_url) }
-      format.xml  { head :ok }
-    end
+    redirect_to mixes_url
+  end
+  
+  private
+  
+  def find_mix
+    @mix = Mix.find(params[:id])
   end
 end

@@ -1,4 +1,10 @@
 Bemaniac::Application.routes.draw do
+  resources :posts
+
+  resources :tweets
+
+  resource :news
+
   resources :contact_requests
   resources :events
   devise_for :users
@@ -8,6 +14,8 @@ Bemaniac::Application.routes.draw do
       get "send_download"
     end
   end
+  
+  root :to => "news#show"
 
   
   # The priority is based upon order of creation:
@@ -59,7 +67,7 @@ Bemaniac::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "pages#bio"
+  # root :to => "pages#bio"
 
   # See how all your routes lay out with "rake routes"
 

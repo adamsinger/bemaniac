@@ -1,0 +1,4 @@
+= image_tag @mix.art_url, :alt => "#{@mix.title} artwork"
+%h1 Thank you for downloading #{@mix.title}
+%p Make sure to like me on Facebook below to get the latest about new music and upcoming events.
+%small If your download doesn't start immediately, #{link_to "click here", send_download_mix_url(@mix)}

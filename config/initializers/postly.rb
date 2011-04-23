@@ -1,0 +1,1 @@
+Postly.config = YAML.load_file(Rails.root.join('config', 'postly.yml'))
